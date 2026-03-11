@@ -30,9 +30,9 @@ jobs:
 
       # 5. Deploy to Firebase Hosting
       - name: Deploy to Firebase Hosting
-        uses: FirebaseExtended/action-hosting-deploy@v1
+        uses: FirebaseHosting/github-action@v1
         with:
           repoToken: ${{ secrets.GITHUB_TOKEN }}
           firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
-          projectId: "<YOUR_FIREBASE_PROJECT_ID>"
+          projectId: "gad-info-hub"  # Replace with your Firebase Project ID
           channelId: live
