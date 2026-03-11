@@ -3,7 +3,7 @@ name: Deploy Vue SPA to Firebase Hosting
 on:
   push:
     branches:
-      - main  # change if your default branch is different
+      - main
 
 jobs:
   build-and-deploy:
@@ -30,9 +30,9 @@ jobs:
 
       # 5. Deploy to Firebase Hosting
       - name: Deploy to Firebase Hosting
-        uses: FirebaseHosting/github-action@v1
+        uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: ${{ secrets.GITHUB_TOKEN }}
           firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
-          projectId: "gad-info-hub"  # Replace with your Firebase Project ID
+          projectId: "gad-info-hub"  # replace with your Firebase Project ID
           channelId: live
