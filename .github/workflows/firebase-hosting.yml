@@ -8,15 +8,20 @@ on:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    # REQUIRED: Grants the action permission to post deployment statuses
+    permissions:
+      checks: write
+      contents: read
+      pull-requests: write 
 
     steps:
-      # Checkout the repo
+      # Checkout the repo (Updated to v4)
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
-      # Setup Node.js
+      # Setup Node.js (Updated to v4)
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: 20
 
@@ -34,5 +39,5 @@ jobs:
         with:
           repoToken: ${{ secrets.GITHUB_TOKEN }}
           firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
-          projectId: "gad-info-hub" # replace with your Firebase Project ID
-          channelId: live
+          projectId: "gad-info-hub"
+          channelId: live # Fixed this line!
